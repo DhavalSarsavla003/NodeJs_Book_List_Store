@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-image: url('https://images.pexels.com/photos/807598/pexels-photo-807598.jpeg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .primary-bg {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            color: white;
+        }
+
+        .primary-bg input {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .custom-shadow{
+            filter: drop-shadow(black 1px 0px 8px);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="primary-bg">
+        <div class="container">
+            <div class="row text-center">
+                <div class="logo">
+                    <h1 class="display-4 fw-bold py-2">
+                        View Book
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section style="padding-top: 20px;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <div class="backgroundOfBtns primary-bg d-flex flex-wrap justify-content-start align-items-center rounded-4"
+                            style="padding: 20px;border: rgba(255, 255, 255,0.4) solid 1px;">
+                            <div class="book w-100 primary-bg p-2 rounded-4 px-3">
+                                <h2 class="py-3 display-6 fw-bolder text-wrap flex-wrap">
+                                    <%= singleBook.name %>
+                                </h2>
+                                <hr>
+                                <p>
+                                    Author : <%= singleBook.author %>
+                                </p>
+
+                                <p>
+                                    description : <%= singleBook.description%>
+                                </p>
+
+                                <p>
+                                   Price : ₹ <%= singleBook.price %>
+                                </p>
+                            </div>
+                            <div class="col text-center mt-3 primary-bg py-3 rounded-4" style="background-color: rgba(255, 255, 255, 0.1);">
+                                <a href="/editBook/<%= singleBook.id%>" style="transition: all ease-in 0.2s;" class="shadow rounded-5 px-4 btn primary-bg"><i
+                                        class="custom-shadow bi bi-pencil"></i></a>
+
+                                <a href="/" style="transition: all ease-in 0.2s;" class="btn primary-bg rounded-5 px-4 shadow"><i class="custom-shadow bi bi-arrow-left"></i></a>
+
+                                <a href="/deleBook/<%= singleBook.id%>" style="transition: all ease-in 0.2s;" class="shadow rounded-5 px-4 btn primary-bg"><i
+                                        class="custom-shadow bi bi-trash3"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
